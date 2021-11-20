@@ -1,0 +1,15 @@
+name: Github Actions Demo
+on: [push] 
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Simple JS Action
+        uses: actions/hello-world-javascript-action@v1
+        id: greet
+        with:
+          who-to-greet: "Ankit"
+      - name: log time
+        run: echo "${{steps.greet.outputs.time}}"
