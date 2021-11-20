@@ -13,3 +13,17 @@ jobs:
           who-to-greet: "Ankit"
       - name: log time
         run: echo "${{steps.greet.outputs.time}}"
+      
+      - name: List Files
+        run: |
+          pwd
+          ls
+
+      - name: checkout
+        uses: actions/checkout@v1
+      
+      - name: List Files Again
+        run: |
+          pwd
+          ls
+
