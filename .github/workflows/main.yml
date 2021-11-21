@@ -103,14 +103,19 @@ jobs:
           JOB_CONTEXT : ${{toJson(job)}}
 
   node-version:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node_versions: [6,10]
+      fail-fast: true
+    runs-on: ${{matrix.os}}
     steps:
       - name: Print current node version
         run: node -v
       - name: Upgrate Node
         uses: actions/setup-node@v1
-        with:
-          node-version: 6
+        with: 
+          node-version: ${{matrix.node_versions}}
       - name: Print new node version
         run: node -v 
     
