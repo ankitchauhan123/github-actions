@@ -1,0 +1,10 @@
+name: Docker Container Job
+on: push
+
+jobs:
+  node-docker:
+    runs-on: ubuntu-latest
+    container: node:alpine
+    steps: #these steps would run inside the container only
+      - name: print node version
+        run: node -v

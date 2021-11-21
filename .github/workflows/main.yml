@@ -107,6 +107,9 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         node_versions: [6,10]
+        exclude:
+          - os: windows-latest
+            node_versions: 6
       fail-fast: true
     runs-on: ${{matrix.os}}
     steps:
