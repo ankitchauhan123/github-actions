@@ -45,7 +45,7 @@ jobs:
         run: |
           git init
           echo "========================================================================="
-          git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git" 
+          git remote add origin "https://${GITHUB_ACTOR}:${{secrets.GITHUB_TOKEN}}@github.com/${GITHUB_REPOSITORY}.git" 
           echo "========================================================================="
 
           git config --global user.email "ankit.c7+1@gmail.com"
@@ -56,7 +56,7 @@ jobs:
           echo "========================================================================="
           git checkout main
           echo "========================================================================="
-          git branch --set-upstream-to=orgin/main
+          git branch --set-upstream-to=origin/main
           echo "========================================================================="
           git pull
           echo "========================================================================="
