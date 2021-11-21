@@ -9,8 +9,11 @@ jobs:
   hello-world-build :
     runs-on: ubuntu-latest
     env:
-      VAR3 : VAR1
+      VAR3 : Hi Ankit
       VAR4 : VAR2
+    steps:
+      - name: Hi
+        run : echo ${VAR3}
 
 
   hello-world:
