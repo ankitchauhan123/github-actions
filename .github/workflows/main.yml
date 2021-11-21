@@ -79,3 +79,9 @@ jobs:
           pwd
           ls
 
+      - name: Print Job Context
+        run: |
+          echo "JOB_CONTEXT: $JOB_CONTEXT"
+        env: 
+          JOB_CONTEXT : ${{toJson(job)}}
+
