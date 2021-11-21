@@ -1,8 +1,6 @@
 name: Github Actions Demo
-on:
-  push:
-    branches:
-      - master
+on: push
+ 
 env:
   VAR1 : VAR1
   VAR2 : VAR2
