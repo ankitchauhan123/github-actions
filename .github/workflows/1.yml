@@ -48,8 +48,8 @@ jobs:
           git config --global user.email "ankit.c7+1@gmail.com"
           git config --global user.name "ankit chauhan"
           git fetch
-          git checkout master
-          git branch --set-upstream-to=orgin/master
+          git checkout main
+          git branch --set-upstream-to=orgin/main
           git pull
           ls -a
           echo $RANDOM >> random.txt
