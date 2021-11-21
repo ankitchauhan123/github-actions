@@ -18,7 +18,7 @@ jobs:
 
   hello-world:
     runs-on: ubuntu-latest
-    needs: [hello-world-build]
+    needs: [hello-world-build] #first the hello world build should run then this
     env:
       VAR3 : VAR1
       VAR4 : VAR2
@@ -28,13 +28,14 @@ jobs:
         uses: actions/hello-world-javascript-action@v1
         id: greet
         with:
-          who-to-greet: "Ankit"
+          who-to-greet: "Ankit" # a variable accepted by the action
           
       - name: Error Step
+        continue-on-error: true # rest of the steps should continue even if there is error in this step
         run: echhho $HI
     
       - name: Env Variables
-        if : failure()
+        if : failure() #this step should continue if error in previous step
         env:
           VAR5 : VAR1
           VAR6 : VAR2
