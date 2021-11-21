@@ -29,8 +29,10 @@ jobs:
         id: greet
         with:
           who-to-greet: "Ankit"
-     
-        
+          
+      - name: Error Step
+        run: echhho $HI
+    
       - name: Env Variables
         if : failure()
         env:
