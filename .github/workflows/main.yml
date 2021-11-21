@@ -6,8 +6,16 @@ env:
   VAR2 : VAR2
 
 jobs:
+  hello-world-build :
+    runs-on: ubuntu-latest
+    env:
+      VAR3 : VAR1
+      VAR4 : VAR2
+
+
   hello-world:
     runs-on: ubuntu-latest
+    needs: [hello-world-build]
     env:
       VAR3 : VAR1
       VAR4 : VAR2
@@ -21,6 +29,7 @@ jobs:
      
         
       - name: Env Variables
+        if : failure()
         env:
           VAR5 : VAR1
           VAR6 : VAR2
