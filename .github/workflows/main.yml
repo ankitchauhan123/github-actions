@@ -109,6 +109,8 @@ jobs:
         run: node -v
       - name: Upgrate Node
         uses: actions/setup-node@v1
+        with:
+          node-version: 6
       - name: Print new node version
         run: node -v 
     
