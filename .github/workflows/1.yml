@@ -1,9 +1,18 @@
 name: Github Actions Demo
-on: [push , pull_request] 
+on:
+  push:
+    branches:
+      - master
+env:
+  VAR1 : VAR1
+  VAR2 : VAR2
 
 jobs:
   hello-world:
     runs-on: ubuntu-latest
+    env:
+      VAR3 : VAR1
+      VAR4 : VAR2
 
     steps:
       - name: Simple JS Action
@@ -11,6 +20,22 @@ jobs:
         id: greet
         with:
           who-to-greet: "Ankit"
+     
+        
+      - name: Env Variables
+        env:
+          VAR5 : VAR1
+          VAR6 : VAR2
+        run: |
+          echo "${VAR1}"
+          echo "${VAR2}"
+          echo "${VAR3}"
+          echo "${VAR4}"
+          echo "${VAR5}"
+          echo "${VAR6}"
+
+      
+
 
       - name: log time
         run: echo "${{steps.greet.outputs.time}}"
