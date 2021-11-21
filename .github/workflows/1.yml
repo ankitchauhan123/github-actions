@@ -30,7 +30,7 @@ jobs:
           echo "${VAR3}"
           echo "${VAR4}"
           echo "${VAR5}"
-          echo " ENV SECRET : ${{secrets}}"
+          echo " ENV SECRET : ${{secrets.TEST_SECRET}}"
 
       
 
