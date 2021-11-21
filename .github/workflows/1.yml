@@ -44,19 +44,32 @@ jobs:
       - name : Commit a Files
         run: |
           git init
+          echo "========================================================================="
           git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git" 
+          echo "========================================================================="
+
           git config --global user.email "ankit.c7+1@gmail.com"
           git config --global user.name "ankit chauhan"
-          git fetch
-          git checkout master
-          git branch --set-upstream-to=orgin/master
-          git pull
-          ls -a
-          echo $RANDOM >> random.txt
-          git add -A
-          git commit -m "random file"
-          git push 
 
+          echo "========================================================================="
+          git fetch
+          echo "========================================================================="
+          git checkout main
+          echo "========================================================================="
+          git branch --set-upstream-to=orgin/main
+          echo "========================================================================="
+          git pull
+          echo "========================================================================="
+          ls -a
+          echo "========================================================================="
+          echo $RANDOM >> random.txt
+          echo "========================================================================="
+          git add -A
+          echo "========================================================================="
+          git commit -m "random file"
+          echo "========================================================================="
+          git push 
+          echo "========================================================================="
 
       - name: checkout
         uses: actions/checkout@v1
