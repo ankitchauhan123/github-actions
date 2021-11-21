@@ -6,13 +6,15 @@ env:
   VAR2 : VAR2
 
 jobs:
-  hello-world-build :
+  hello-world-build : 
+    timeout-minutes: 360 #timeout for job
     runs-on: ubuntu-latest
     env:
       VAR3 : Hi Ankit
       VAR4 : VAR2
     steps:
       - name: Hi
+        timeout-minutes: 20 #timeout for step
         run : echo ${VAR3}
 
 
@@ -99,4 +101,15 @@ jobs:
           echo "JOB_CONTEXT: $JOB_CONTEXT"
         env: 
           JOB_CONTEXT : ${{toJson(job)}}
+
+  node-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print current node version
+        run: node -v
+      - name: Upgrate Node
+        uses: actions/setup-node@v1
+      - name: Print new node version
+        run: node -v 
+    
 
